@@ -50,7 +50,7 @@ public class DBhelper extends SQLiteOpenHelper {
         db.close();
         return  dumbList;
     }
-    public void deleteAll(){
+    public synchronized void deleteAll(){
         Log.d("delete","delete");
         SQLiteDatabase db=this.getWritableDatabase();
         db.delete(TABLE_NAME,null,null);
