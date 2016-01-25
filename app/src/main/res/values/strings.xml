@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TechSearch</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Title_app">TechSearch</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_hourly_weather">hourly_weather</string>
+    <string name="title_activity_load_more_feed">LoadMoreFeed</string>
+    <string name="title_activity_upload">UploadActivity</string>
+    <string name="HINT">CATEGORY</string>
+    <string name="TITLE">TITLE</string>
+    <string name="SHORT_DESCRIPTION">SHORT DESCRIPTION</string>
+    <string name="LONG_DESCRIPTION">LONG DESCRIPTION</string>
+    <string name="SAVE">UPLOAD</string>
+    <string name="UPLOAD_IMAGE">UPLOAD IMAGE</string>
+
+</resources>

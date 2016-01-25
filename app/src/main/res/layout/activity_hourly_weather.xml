@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ramola.techsearch.hourly_weather">
+<include
+    android:id="@+id/appbar_hourly_weather"
+    layout="@layout/app_bar"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/hourly_weather_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+
+
