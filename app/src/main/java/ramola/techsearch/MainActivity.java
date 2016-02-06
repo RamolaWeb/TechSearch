@@ -49,7 +49,7 @@ private void constructJob(){
     JobInfo.Builder builder=new JobInfo.Builder(100,new ComponentName(this,MyService.class))
             .setPeriodic(1000)
             .setPersisted(true)
-            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED);
+            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
     jobScheduler.schedule(builder.build());
 }
 

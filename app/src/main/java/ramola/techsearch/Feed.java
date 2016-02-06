@@ -10,13 +10,14 @@ public class Feed implements Parcelable {
     public String SHORT_DESCRIPTION;
     public String LONG_DESCRIPTION;
     public String URL_PHOTO;
-
-    public Feed(String TITLE, String CATEGORY, String SHORT_DESCRIPTION, String LONG_DESCRIPTION, String URL_PHOTO) {
+    public  String CREATED_ON;
+    public Feed(String TITLE, String CATEGORY, String SHORT_DESCRIPTION, String LONG_DESCRIPTION, String URL_PHOTO,String CREATED_ON) {
         this.TITLE = TITLE;
         this.CATEGORY = CATEGORY;
         this.SHORT_DESCRIPTION = SHORT_DESCRIPTION;
         this.LONG_DESCRIPTION = LONG_DESCRIPTION;
         this.URL_PHOTO = URL_PHOTO;
+        this.CREATED_ON=CREATED_ON;
     }
 
     public Feed(Parcel parcel) {
@@ -25,6 +26,7 @@ public class Feed implements Parcelable {
         SHORT_DESCRIPTION=parcel.readString();
         LONG_DESCRIPTION=parcel.readString();
         URL_PHOTO=parcel.readString();
+        CREATED_ON=parcel.readString();
     }
 
     @Override
@@ -39,8 +41,9 @@ public class Feed implements Parcelable {
        parcel.writeString(SHORT_DESCRIPTION);
        parcel.writeString(LONG_DESCRIPTION);
        parcel.writeString(URL_PHOTO);
+       parcel.writeString(CREATED_ON);
     }
-    public static Creator<Feed> creator=new Creator<Feed>() {
+    public static Creator<Feed> CREATOR=new Creator<Feed>() {
         @Override
         public Feed createFromParcel(Parcel parcel) {
             return new Feed(parcel);

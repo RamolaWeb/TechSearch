@@ -4,7 +4,6 @@ package ramola.techsearch;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RetryPolicy;
@@ -52,7 +51,7 @@ public class MyService extends JobService {
         @Override
         protected JobParameters doInBackground(JobParameters... jobParameterses) {
             try {
-                dBhelper.insertMovies(parseJson(sendJsonRequest()),true);
+                dBhelper.insertMovies(parseJson(sendJsonRequest()));
             }
            catch (Exception c){
 
@@ -92,7 +91,7 @@ public class MyService extends JobService {
             try {
                 JSONArray jsonArray=jsonObject.getJSONArray(FEED);
                 for (int i=0;i<jsonArray.length();i++){
-                    String category,title,short_description,long_description,photo_url;
+                    String category,title,short_description,long_description,photo_url,created_on;
                     JSONObject jsonObject1=jsonArray.getJSONObject(i);
                     if (contain(jsonObject1,CATEGORY)){
                         category=jsonObject1.getString(CATEGORY);
@@ -124,7 +123,13 @@ public class MyService extends JobService {
                     else{
                         photo_url="NaN";
                     }
-                    feedArrayList.add(new Feed(title,category,short_description,long_description,photo_url));
+                    if (contain(jsonObject1,"created_on")){
+                        created_on=jsonObject1.getString("created_on");
+                    }
+                    else{
+                        created_on="NaN";
+                    }
+                    feedArrayList.add(new Feed(title,category,short_description,long_description,photo_url,created_on));
 
                 }
 
