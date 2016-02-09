@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -49,7 +48,7 @@ private void constructJob(){
     JobInfo.Builder builder=new JobInfo.Builder(100,new ComponentName(this,MyService.class))
             .setPeriodic(1000)
             .setPersisted(true)
-            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
+            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED);
     jobScheduler.schedule(builder.build());
 }
 

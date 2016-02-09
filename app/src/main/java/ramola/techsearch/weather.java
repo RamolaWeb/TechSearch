@@ -64,6 +64,7 @@ private TextView CURRENT_MAX,CURRENT_MIN,CURRENT_WIND,CURRENT_HUMIDITY,CURRENT_S
 //private String MAX,MIN,WIND,HUMIDITY,STATUS,url;
 private ImageView CURRENT_LOGO;
 private ImageLoader imageLoader;
+    private  LocationDetector locationDetector;
     public weather() {
         // Required empty public constructor
     }
@@ -73,6 +74,7 @@ private ImageLoader imageLoader;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_wheather, container, false);
+        locationDetector=new LocationDetector(getActivity());
         imageLoader=MySingleton.getInstance(getActivity()).getImageLoader();
         recyclerView= (RecyclerView) v.findViewById(R.id.recycler_view_weather);
         CURRENT_MAX= (TextView) v.findViewById(R.id.current_max);
@@ -184,9 +186,9 @@ public void sendjson(){
     }
     private String getUrl(boolean Current){
         if(Current)
-            return BASE_URL_WEATHER_CURRENT+"1256237"+CURRENT_UNIT+APP_ID;
+            return BASE_URL_WEATHER_CURRENT+"lat="+locationDetector.getLatitude()+"&lon="+locationDetector.getLongitude()+CURRENT_UNIT+APP_ID;
             else
-        return BASE_URL_WEATHER+"1256237"+UNIT+APP_ID;
+        return BASE_URL_WEATHER+"lat="+locationDetector.getLatitude()+"&lon="+locationDetector.getLongitude()+UNIT+APP_ID;
 
     }
     private Boolean contain(JSONObject object,String name){

@@ -190,7 +190,7 @@ private void ShowError(View v){
         },new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(UploadActivity.this,"UPLOADED UNSUCCESSFULLY",Toast.LENGTH_SHORT).show();
+                Toast.makeText(UploadActivity.this," UNSUCCESSFULLY",Toast.LENGTH_SHORT).show();
             }
         }){
             @Override

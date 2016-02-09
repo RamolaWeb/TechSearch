@@ -12,7 +12,7 @@ public interface Field {
     public static String URL_FETCH_DATA="/ShowAllJson.php";
     public static String URL_UPLOAD="/mobileupload.php";
     public  interface Field_weather{
-        public static  String BASE_URL_WEATHER="http://api.openweathermap.org/data/2.5/forecast/daily?id=";
+        public static  String BASE_URL_WEATHER="http://api.openweathermap.org/data/2.5/forecast/daily?";
         public static String APP_ID="be7e8d2e7aa8f19c7ddd24a35c2bdca9";
         public static String UNIT="&units=metric&cnt=5&appid=";
         public static  String ARRAY_NAME_MAIN="list";
@@ -27,12 +27,12 @@ public interface Field {
         public static String WIND="wind";
         public static String WIND_SPEED="speed";
         public static String WIND_DEGREE="deg";
-        public static  String BASE_URL_WEATHER_CURRENT="http://api.openweathermap.org/data/2.5/weather?id=";
+        public static  String BASE_URL_WEATHER_CURRENT="http://api.openweathermap.org/data/2.5/weather?";
         public static String CURRENT_UNIT="&units=metric&appid=";
         public static String HUMIDITY="humidity";
     }
     public interface FIELD_WEATHER_DAY{
-        public static final String BASE_URL_DAY="http://api.openweathermap.org/data/2.5/forecast?id=";
+        public static final String BASE_URL_DAY="http://api.openweathermap.org/data/2.5/forecast?";
         public static final String UNITS_DAILY="&units=metric&appid=";
         public static final String TIME_CALCULATION="dt";
         public static final String MAIN="main";

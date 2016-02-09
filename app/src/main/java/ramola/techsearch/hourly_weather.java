@@ -1,16 +1,12 @@
 package ramola.techsearch;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.transition.Slide;
-import android.transition.TransitionInflater;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -49,11 +45,12 @@ private ArrayList<item_hourly> list;
     private final String Key_Movie="hour";
     private long time_access;
 private  long time_ahead;
-
+private LocationDetector locationDetector;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hourly_weather);
+        locationDetector=new LocationDetector(this);
         Toolbar toolbar= (Toolbar) findViewById(R.id.appbar_hourly_weather);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("HOURLY WEATHER");
@@ -63,7 +60,7 @@ private  long time_ahead;
         if(i!=null)
             time_access=i.getLongExtra("GET",0)-21600L;
         time_ahead=time_access+86400L;
-        ;
+
         recyclerView= (RecyclerView) findViewById(R.id.hourly_weather_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new Hourly_Adapter(this);
@@ -156,7 +153,7 @@ private  long time_ahead;
     }
 
     private String getUrl() {
-        return BASE_URL_DAY+"1256237"+UNITS_DAILY+APP_ID;
+        return BASE_URL_DAY+"lat="+locationDetector.getLatitude()+"&lon="+locationDetector.getLongitude()+UNITS_DAILY+APP_ID;
     }
     private boolean getAccess(long time){
         return (time>=time_access)&&(time<time_ahead) ;
